@@ -1,0 +1,277 @@
+:root{
+  --fiolet:#634492;
+  --fiolet-ciemny:#2B1D45;
+  --fiolet-stopka:#221735;
+  --fiolet-jasny:#B9A6DA;
+  --grafit:#434242;
+  --szary:#898989;
+  --jasnoszary:#B2B3B3;
+  --sekcja:#F2F2F5;
+  --linia:#DEDDE5;
+  --tekst:#232129;
+  --tekst2:#55525E;
+  --nag:76px;
+  --szer:1200px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nag) + 8px);-webkit-text-size-adjust:100%}
+body{margin:0;background:#FFFFFF;color:var(--tekst);font:17px/1.6 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--fiolet)}
+h1,h2,h3,h4{font-family:Urbanist,Inter,sans-serif;line-height:1.15;margin:0;color:var(--tekst);font-weight:700;letter-spacing:-.01em}
+h2{font-size:clamp(30px,3.4vw,46px);margin-bottom:18px}
+h3{font-size:21px}
+p{margin:0 0 14px}
+.wrap{width:min(var(--szer),100% - 48px);margin-inline:auto}
+@media (min-width:1800px){:root{--szer:1380px}body{font-size:18px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:6px;font:600 16px/1 Inter,sans-serif;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn-fiolet{background:var(--fiolet);color:#fff}
+.btn-fiolet:hover{background:#523781}
+.btn-bialy{background:#fff;color:var(--fiolet-ciemny)}
+.btn-bialy:hover{background:#ECE6F6}
+.btn-obrys{background:#fff;color:var(--fiolet);border-color:var(--fiolet)}
+.link-btn{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
+
+/* nagłówek */
+.naglowek{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 1px 0 var(--linia)}
+.nag-in{display:flex;align-items:center;gap:28px;height:var(--nag)}
+.logo{display:block;flex:none;line-height:0}
+.logo svg{width:142px;height:60px}
+.menu{display:flex;gap:4px;margin-left:auto}
+.menu a{position:relative;padding:10px 12px;color:var(--grafit);text-decoration:none;font-weight:500;font-size:15.5px;white-space:nowrap}
+.menu a::after{content:"";position:absolute;left:50%;bottom:0;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:var(--fiolet);transform:scale(0);transition:transform .2s}
+.menu a:hover{color:var(--fiolet)}
+.menu a.akt{color:var(--fiolet)}
+.menu a.akt::after{transform:scale(1)}
+.nag-tel{display:inline-flex;align-items:center;gap:8px;flex:none;color:var(--fiolet);font-weight:600;text-decoration:none;border:2px solid var(--fiolet);border-radius:6px;padding:9px 14px}
+.nag-tel svg{width:20px;height:20px}
+.nag-tel:hover{background:var(--fiolet);color:#fff}
+.burger{display:none;width:46px;height:46px;border:0;background:none;padding:11px;cursor:pointer}
+.burger span{display:block;height:2px;background:var(--grafit);margin:6px 0;transition:transform .2s,opacity .2s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* pierwszy ekran */
+.hero{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:calc(100svh - var(--nag));background:var(--fiolet-ciemny);overflow:hidden}
+.hero-foto{position:absolute;inset:0}
+.hero-foto img{width:100%;height:100%;object-fit:cover;object-position:62% 60%}
+.hero-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(43,29,69,.96) 0%,rgba(43,29,69,.9) 30%,rgba(43,29,69,.55) 52%,rgba(43,29,69,.08) 75%,rgba(43,29,69,0) 100%)}
+.hero-kropki{position:absolute;z-index:1;right:7%;top:52%;height:min(50vh,480px);width:auto;transform:translateY(-50%);overflow:visible}
+.hero-kropki circle:nth-child(1){fill:rgba(255,255,255,.42)}
+.hero-kropki circle:nth-child(2){fill:rgba(255,255,255,.62)}
+.hero-kropki circle:nth-child(3){fill:var(--fiolet);opacity:.94}
+.hero-in{position:relative;z-index:2;padding:72px 0}
+.hero-tekst{max-width:640px}
+.hero h1{color:#fff;font-size:clamp(40px,4.3vw,66px);font-weight:800;line-height:1.06;margin-bottom:24px}
+.hero .lead{color:#E6E0F0;font-size:clamp(17px,1.25vw,20px);line-height:1.6;margin-bottom:34px;max-width:580px}
+.hero .btn{min-height:56px;padding:0 32px;font-size:17px}
+@media (min-width:1800px){.hero-tekst{max-width:760px}.hero .lead{max-width:660px}}
+
+/* sekcje */
+.sekcja{padding:96px 0}
+.sek-glowa{max-width:780px;margin-bottom:44px}
+.sek-glowa p{color:var(--tekst2);font-size:18px}
+
+/* kancelaria */
+.kan-siatka{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:64px;align-items:start}
+.kan-tekst p{color:var(--tekst2)}
+.kan-tekst h3{margin:30px 0 14px}
+.kropki-lista{list-style:none;margin:0;padding:0}
+.kropki-lista li{position:relative;padding:0 0 10px 28px;color:var(--tekst2)}
+.kropki-lista li::before{content:"";position:absolute;left:0;top:.45em;width:12px;height:12px;border-radius:50%;background:var(--fiolet);box-shadow:-5px 9px 0 -3px var(--szary)}
+.kan-bok{background:var(--sekcja);padding:40px;border-top:4px solid var(--fiolet)}
+.kan-bok h3{margin-bottom:22px}
+.sciezka{list-style:none;margin:0 0 30px;padding:0}
+.sciezka li{position:relative;padding:0 0 18px 30px;color:var(--tekst2);font-size:16px}
+.sciezka li b{display:block;color:var(--tekst);font-family:Urbanist,sans-serif;font-size:18px;margin-bottom:2px}
+.sciezka li::before{content:"";position:absolute;left:0;top:.35em;width:14px;height:14px;border-radius:50%;background:var(--jasnoszary)}
+.sciezka li:nth-child(2)::before{background:var(--szary)}
+.sciezka li:nth-child(3)::before{background:var(--fiolet)}
+.kan-bok blockquote{margin:0;padding-top:24px;border-top:1px solid var(--linia);font-family:Urbanist,sans-serif;font-size:20px;line-height:1.4;font-weight:600;color:var(--fiolet-ciemny)}
+.kan-bok cite{display:block;margin-top:10px;font:500 15px Inter,sans-serif;font-style:normal;color:var(--tekst2)}
+
+/* kropki obszarów (rosną jak w logo) */
+.kr{display:inline-block;flex:none;border-radius:50%;background:var(--fiolet);vertical-align:middle}
+.kr1{width:12px;height:12px;background:var(--jasnoszary)}
+.kr2{width:17px;height:17px;background:var(--szary)}
+.kr3{width:22px;height:22px;background:#7B63A8}
+.kr4{width:28px;height:28px;background:var(--fiolet)}
+
+/* usługi */
+.uslugi{background:var(--sekcja)}
+.obszary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.obszar{background:#fff;padding:36px 38px 28px}
+.obszar h3{display:flex;align-items:center;gap:14px;font-size:24px;margin-bottom:18px;min-height:30px}
+.obszar ul{list-style:none;margin:0;padding:0}
+.obszar li{padding:11px 0;border-top:1px solid var(--linia);color:var(--tekst2);font-size:16px;line-height:1.5}
+.obszar li:first-child{border-top:0}
+
+/* kontrole */
+.kontrole{position:relative;background:var(--fiolet-ciemny);color:#fff;overflow:hidden}
+.kontrole::before{content:"";position:absolute;inset:0;background:url(img/szklo.webp) center/cover;opacity:.14}
+.kon-siatka{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+.kontrole h2{color:#fff}
+.kon-lead{color:#DDD5EA;font-size:19px;margin-bottom:30px}
+.kon-lista{list-style:none;margin:0;padding:0}
+.kon-lista li{position:relative;padding:22px 0 22px 44px;border-top:1px solid rgba(255,255,255,.18);color:#D2C9E2;font-size:16px}
+.kon-lista li:last-child{border-bottom:1px solid rgba(255,255,255,.18)}
+.kon-lista li b{display:block;color:#fff;font-family:Urbanist,sans-serif;font-size:21px;margin-bottom:4px}
+.kon-lista li::before{content:"";position:absolute;left:0;top:28px;width:20px;height:20px;border-radius:50%;background:var(--fiolet);box-shadow:0 0 0 3px rgba(255,255,255,.85)}
+
+/* biuro */
+.ceny{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.cena{border:1px solid var(--linia);border-top:4px solid var(--fiolet);padding:30px 32px}
+.cena h3{font-size:21px;margin-bottom:4px}
+.cena p{color:var(--tekst2);margin-bottom:22px}
+.cena strong{display:block;font-family:Urbanist,sans-serif;font-size:40px;font-weight:800;color:var(--fiolet);line-height:1}
+.cena small{font-size:17px;font-weight:600;color:var(--tekst2)}
+
+/* e-doradztwo */
+.edor{background:var(--sekcja)}
+.edor-siatka{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:center}
+.edor p{color:var(--tekst2);font-size:18px;margin-bottom:28px}
+.kroki{list-style:none;margin:0;padding:0}
+.kroki li{display:flex;align-items:center;gap:22px;padding:18px 0;border-top:1px solid var(--linia)}
+.kroki li:first-child{border-top:0}
+.kroki .kr{margin:0 calc((28px - var(--d,28px))/2)}
+.kroki .kr1{--d:12px}.kroki .kr2{--d:17px}.kroki .kr3{--d:22px}
+.kroki b{display:block;font-family:Urbanist,sans-serif;font-size:20px;color:var(--tekst)}
+.kroki div{color:var(--tekst2);font-size:16px}
+
+/* zespół */
+.sek-glowa-strz{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;max-width:none}
+.sek-glowa-strz p{max-width:640px;margin:0}
+.strzalki{display:flex;gap:10px;flex:none}
+.strz{width:52px;height:52px;border-radius:50%;border:2px solid var(--fiolet);background:#fff;color:var(--fiolet);cursor:pointer;display:grid;place-items:center}
+.strz:hover{background:var(--fiolet);color:#fff}
+.strz svg{width:22px;height:22px}
+.karty{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 66px)/4);gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px;cursor:grab;user-select:none}
+.karty::-webkit-scrollbar{display:none}
+.karty.ciagnie{cursor:grabbing;scroll-snap-type:none}
+.karta{scroll-snap-align:start;min-width:0}
+.karta-foto{position:relative;aspect-ratio:2/3;background:#E9E9EB;overflow:hidden;margin-bottom:18px}
+.karta-foto img{width:100%;height:100%;object-fit:cover;object-position:top;pointer-events:none}
+.karta-foto::after{content:"";position:absolute;right:16px;bottom:16px;width:22px;height:22px;border-radius:50%;background:var(--fiolet);box-shadow:-20px 16px 0 -5px var(--szary),-34px 30px 0 -8px var(--jasnoszary)}
+.karta h3{font-size:22px;margin-bottom:2px}
+.karta .rola{color:var(--fiolet);font-weight:600;font-size:15px;margin-bottom:10px}
+.karta p{color:var(--tekst2);font-size:15.5px}
+
+/* kontakt */
+.kontakt{background:var(--sekcja)}
+.kontakt-siatka{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.adres{font-size:18px;color:var(--tekst2)}
+.adres b{color:var(--tekst)}
+.kontakt-lista{list-style:none;margin:0 0 26px;padding:0}
+.kontakt-lista li{display:grid;grid-template-columns:130px minmax(0,1fr);gap:12px;padding:12px 0;border-top:1px solid var(--linia);overflow-wrap:anywhere}
+.kontakt-lista span{color:var(--tekst2);font-size:15px}
+.kontakt-lista a{text-decoration:none;font-weight:600}
+.mapa{aspect-ratio:16/10;background:#E3E3E8}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+.formularz{background:#fff;padding:40px}
+.formularz h3{font-size:26px;margin-bottom:22px}
+.formularz label{display:block;font-weight:500;font-size:15px;margin-bottom:16px;color:var(--tekst)}
+.formularz input,.formularz select,.formularz textarea{display:block;width:100%;margin-top:6px;padding:13px 14px;border:1px solid #C9C7D3;border-radius:6px;font:16px Inter,sans-serif;color:var(--tekst);background:#fff}
+.formularz input:focus,.formularz select:focus,.formularz textarea:focus{outline:2px solid var(--fiolet);outline-offset:0;border-color:var(--fiolet)}
+.formularz .dwa{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.formularz .zgoda{display:flex;gap:10px;align-items:flex-start;font-weight:400;color:var(--tekst2)}
+.formularz .zgoda input{width:20px;height:20px;margin:2px 0 0;flex:none}
+.form-info{margin:14px 0 0;color:var(--fiolet);font-weight:600;min-height:1.6em}
+
+/* stopka */
+.stopka{background:var(--fiolet-stopka);color:#C9C0D9;padding:64px 0 28px;font-size:15.5px;--logo-tekst:#fff;--logo-sub:#C9C0D9}
+.stopka a{color:#fff;text-decoration:none}
+.stopka a:hover{text-decoration:underline}
+.stopka-gora{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.14)}
+.stopka-marka p{max-width:380px;margin-top:18px}
+.stopka-kol{display:flex;flex-direction:column;gap:9px;min-width:0;overflow-wrap:anywhere}
+.stopka h4{color:#fff;font-size:18px;margin-bottom:6px}
+.stopka-dol{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;padding-top:24px}
+.stopka-dol .wylinka-badge{margin-left:auto}
+
+/* pasek mobilny */
+.mob{display:none}
+
+/* cookies */
+.cookies{position:fixed;z-index:80;left:20px;bottom:20px;width:min(440px,calc(100% - 40px));background:#fff;color:var(--tekst);border:1px solid var(--linia);border-top:4px solid var(--fiolet);box-shadow:0 14px 40px rgba(34,23,53,.22);padding:22px;font-size:15px}
+.cookies[hidden]{display:none}
+.cookies p{margin-bottom:14px}
+.cookies-ust label{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.cookies-btn{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.cookies .btn{min-height:44px;padding:0 16px;font-size:15px}
+
+/* niskie ekrany komputerów */
+@media (min-width:761px) and (max-height:820px){
+  .hero h1{font-size:clamp(36px,3.7vw,54px);margin-bottom:18px}
+  .hero .lead{margin-bottom:26px}
+  .hero-in{padding:40px 0}
+}
+
+/* tablet */
+@media (max-width:1180px){
+  .menu{display:none;position:absolute;top:var(--nag);left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--linia);padding:8px 24px 18px;box-shadow:0 18px 30px rgba(34,23,53,.12)}
+  .menu.otwarte{display:flex}
+  .menu a{padding:14px 4px;font-size:17px;border-bottom:1px solid var(--linia)}
+  .menu a::after{left:auto;right:6px;bottom:50%;margin:0 0 -4px}
+  .burger{display:block}
+  .nag-tel{margin-left:auto}
+  .karty{grid-auto-columns:calc((100% - 44px)/3)}
+}
+@media (max-width:980px){
+  .kan-siatka,.kon-siatka,.edor-siatka,.kontakt-siatka{grid-template-columns:minmax(0,1fr);gap:40px}
+  .ceny{grid-template-columns:minmax(0,1fr)}
+  .karty{grid-auto-columns:calc((100% - 22px)/2)}
+  .stopka-gora{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .stopka-marka{grid-column:1/-1}
+}
+
+/* telefon */
+@media (max-width:760px){
+  :root{--nag:64px}
+  body{font-size:16px}
+  .wrap{width:min(var(--szer),100% - 32px)}
+  .logo svg{width:98px;height:42px}
+  .nag-tel{border:0;padding:8px;width:46px;height:46px;justify-content:center}
+  .nag-tel span{display:none}
+  .nag-tel svg{width:24px;height:24px}
+  .burger{margin-left:0}
+  .nag-in{gap:6px}
+
+  .hero{justify-content:flex-start}
+  .hero-foto{position:relative;inset:auto;flex:1 1 0;min-height:min(46vw,24svh);max-height:52svh;width:100%;align-self:stretch}
+  .hero-foto img{position:absolute;inset:0;object-position:50% 70%}
+  .hero-foto::after{background:linear-gradient(180deg,rgba(43,29,69,0) 55%,rgba(43,29,69,.85) 92%,var(--fiolet-ciemny) 100%)}
+  .hero-kropki{right:16px;top:auto;bottom:10px;transform:none;height:min(20svh,120px)}
+  .hero-in{flex:0 0 auto;padding:6px 0 28px}
+  .hero h1{font-size:clamp(28px,8.4vw,38px);margin-bottom:14px;line-height:1.08}
+  .hero .lead{font-size:clamp(15px,4.1vw,17px);line-height:1.5;margin-bottom:24px}
+  .hero .btn{width:100%}
+
+  .sekcja{padding:64px 0}
+  .sek-glowa{margin-bottom:30px}
+  .sek-glowa p,.edor p{font-size:16.5px}
+  .kan-bok{padding:28px 22px}
+  .obszary{grid-template-columns:minmax(0,1fr);gap:16px}
+  .obszar{padding:26px 22px 18px}
+  .obszar h3{font-size:21px}
+  .cena{padding:24px 22px}
+  .sek-glowa-strz{display:block}
+  .strzalki{display:none}
+  .karty{grid-auto-columns:78%;gap:16px}
+  .kontakt-lista li{grid-template-columns:minmax(0,1fr);gap:2px}
+  .formularz{padding:26px 20px}
+  .formularz .dwa{grid-template-columns:minmax(0,1fr);gap:0}
+  .stopka{padding:48px 0 96px}
+  .stopka-gora{gap:28px 18px}
+  .stopka-dol .wylinka-badge{margin-left:0}
+
+  .mob{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;position:fixed;z-index:60;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--linia);transform:translateY(110%);transition:transform .25s}
+  .mob.widac{transform:none}
+  .mob .btn{min-height:48px;padding:0 10px}
+  .cookies{left:12px;right:12px;bottom:12px;width:auto;padding:18px}
+}
+@media (max-width:760px) and (max-height:700px){
+  .hero h1{font-size:clamp(26px,7.6vw,32px)}
+  .hero .lead{font-size:15px;margin-bottom:24px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
